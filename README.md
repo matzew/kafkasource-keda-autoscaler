@@ -2,7 +2,7 @@
 
 Sample on Keda integration with the Knative Eventing Source for Apache Kafka
 
-## PREQ
+## Prerequisite
 
 * [KEDA](https://keda.sh/docs/2.4/deploy/#yaml)
 * [Knative Eventing Keda Autoscaler](https://github.com/knative-sandbox/eventing-autoscaler-keda)
