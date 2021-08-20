@@ -48,10 +48,10 @@ Sample on Keda integration with the Knative Eventing Source for Apache Kafka.
 │   └──────────────────┘   │◄───────────────┘
 │                          │
 └──────────────────────────┘
-
-   *Keda scales the consumers of the consumer-group (the KafkaSource), based on records on the topic and its partitions as well based
-   on metadata on the CR of each source.
 ```
+
+* Keda scales the consumers of the consumer-group, here the `KafkaSource` objects, based on records on the topic and its partitions as well based on metadata on the CR of each source.
+* Knative Autoscaler scales the Processor pods based on http traffic.
 
 ## Prerequisite
 
