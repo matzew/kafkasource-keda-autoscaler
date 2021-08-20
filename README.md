@@ -149,8 +149,6 @@ The sources are using various annotations to define the desired scaling behavior
     autoscaling.knative.dev/class: keda.autoscaling.knative.dev
     autoscaling.knative.dev/maxScale: "4"
     autoscaling.knative.dev/minScale: "0"
-    autoscaling.knative.dev/target: "1"
-    autoscaling.knative.dev/targetUtilizationPercentage: "30"
     keda.autoscaling.knative.dev/pollingInterval: "10"
     keda.autoscaling.knative.dev/cooldownPeriod: "10"
     keda.autoscaling.knative.dev/kafkaLagThreshold: "10"
