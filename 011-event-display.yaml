@@ -1,0 +1,20 @@
+apiVersion: serving.knative.dev/v1
+kind: Service
+metadata:
+  name: http-to-kafka-processor1
+spec:
+  template:
+    metadata:
+      annotations:
+        autoscaling.knative.dev/maxScale: "4"
+        autoscaling.knative.dev/minScale: "0"
+        autoscaling.knative.dev/target: "1"
+        autoscaling.knative.dev/targetUtilizationPercentage: "30"
+    spec:
+      containers:
+        - image: docker.io/matzew/http-kafka:sarama
+          env:
+          - name: KAFKA_BOOTSTRAP_SERVERS
+            value: "my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092"
+          - name: KAFKA_TOPIC
+            value: "my-topic2"
