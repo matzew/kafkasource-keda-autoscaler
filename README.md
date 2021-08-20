@@ -121,9 +121,9 @@ kafkasource-kafka-source2-1c2c016f-6aef-4680-bec1-596f13e1b5b4q   1/1     Runnin
 kafkasource-kafka-source2-1c2c016f-6aef-4680-bec1-596f13e1r8txj   1/1     Running   0          33m
 ```
 
-### Scaled Consumers
+### Scaled Knative Serving applications
 
-For the consumers we are also getting four pods: 
+For the receivers of the CloudEvents, comming from the `KafkaSource`s, we are also getting four pods: 
 
 ```
 kubectl get pods
