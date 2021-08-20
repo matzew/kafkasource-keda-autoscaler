@@ -140,7 +140,7 @@ http-to-kafka-processor1-00001-deployment-75fc6cd5c8-v4n4z        2/2     Runnin
 
 Our consumers here are processors, that receive a CloudEvent and put it back to a configurable topic in Apache Kafka.
 
-
+#### Short request execution
 
 _If using a ksvc that has a very short request execution time (like the canonical event-display image (`quay.io/openshift-knative/knative-eventing-sources-event-display`)), we are only getting one pod for that Knative Serving Service:_
 
