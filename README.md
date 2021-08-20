@@ -1,6 +1,6 @@
 # kafkasource-keda-autoscaler
 
-Sample on Keda integration with the Knative Eventing Source for Apache Kafka.
+Sample on KEDA integration with the Knative Eventing Source for Apache Kafka.
 
 ## Architecture Overview
 
@@ -40,7 +40,7 @@ Sample on Keda integration with the Knative Eventing Source for Apache Kafka.
 │   │     ..           │   │          │         │                │                       └───────────────────┘            │
 │   │     ..           │   │          ├─────────┴──┐             │                                                        │
 │   │ ┌─────────────┐  │   │          │            │             │                                                        │
-│   │ │ Partition-n │  │   │          │ Keda*      ├─────────────┘                                                        │
+│   │ │ Partition-n │  │   │          │ KEDA*      ├─────────────┘                                                        │
 │   │ └─────────────┘  │   │          │ and Knative│                                                                      │
 │   │                  │   │          │ Plugin     │                                                                      │
 │   │                  │   │          └─────┬──────┴──────────────────────────────────────────────────────────────────────┘
@@ -50,7 +50,7 @@ Sample on Keda integration with the Knative Eventing Source for Apache Kafka.
 └──────────────────────────┘
 ```
 
-* Keda scales the consumers of the consumer-group, here the `KafkaSource` objects, based on records on the topic and its partitions as well based on metadata on the CR of each source.
+* KEDA scales the consumers of the consumer-group, here the `KafkaSource` objects, based on records on the topic and its partitions as well based on metadata on the CR of each source.
 * Knative Autoscaler scales the Processor pods based on http traffic.
 
 ## Prerequisite
@@ -142,7 +142,7 @@ Different objects are scaled via KEDA in this sample
 
 ### Scaled KafkaSource
 
-The sources are using various annotations to define the desired scaling behavior from Knative and Keda:
+The sources are using various annotations to define the desired scaling behavior from Knative and KEDA:
 
 ```yaml
   annotations:
