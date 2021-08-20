@@ -1,6 +1,38 @@
 # kafkasource-keda-autoscaler
 
-Sample on Keda integration with the Knative Eventing Source for Apache Kafka
+Sample on Keda integration with the Knative Eventing Source for Apache Kafka.
+
+## Architecture Overview
+
+                                                         Kubernetes Cluster
+┌──────────────────────────┐          ┌───────────────────────────────────────────────────────────┐
+│                          │          │                                                           │
+│  Apache Kafka cluster    │          │                                                           │
+│                          │          │                                                           │
+│                          │          │                                   Consumer Group          │
+│   ┌──────────────────┐   │          │                                 ┌─────────────────┐       │
+│   │ Topic            │   │          │                                 │                 │       │
+│   │                  │   │          │  Pull Messages                  │ ┌─────────────┐ │       │
+│   │ ┌──────────────┐ ◄───┼──────────┼─────────────────────────────────┤ │Consumer-1   │ │       │
+│   │ │Partition-1   │ │   │          │                                 │ │             │ │       │
+│   │ └──────────────┘ │   │          │                                 │ └─────────────┘ │       │
+│   │                  │   │          │                                 │                 │       │
+│   │      ..          │   │          │                                 │     ..          │       │
+│   │                  │   │          │                                 │                 │       │
+│   │      ..          │   │          │                                 │     ..          │       │
+│   │                  │   │          │                                 │                 │       │
+│   │      ..          │   │          │                                 │     ...         │       │
+│   │ ┌──────────────┐ │   │          │                                 │                 │       │
+│   │ │Partition-n   │ │   │          ├─────────────────┐               │  ┌────────────┐ │       │
+│   │ └──────────────┘ │   │          │                 │               │  │Consumer-n  │ │       │
+│   │                  │   │          │                 │               │  │            │ │       │
+│   │                  │   │          │ KEDA*       ┌───┼─────────────► │  └────────────┘ │       │
+│   │                  │ ◄─┼──────────┼──┐          │   │               │                 │       │
+│   └──────────────────┘   │          │  │          │   │               └─────────────────┘       │
+│                          │          │                 │                                         │
+└──────────────────────────┘          └─────────────────┴─────────────────────────────────────────┘
+                                 *Keda scales the consumers, based on events on the topic
+
 
 ## Prerequisite
 
